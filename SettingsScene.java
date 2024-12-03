@@ -59,32 +59,6 @@ public class SettingsScene{
 		catch(IOException e) { 
 			System.out.println("ERROR: " + e);
 		}
-		/*
-		 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		 try { 
-			 DocumentBuilder db = dbf.newDocumentBuilder();
-			 Document doc = db.newDocument();
-			 Element root = doc.createElement("PICTIONARY");//creates the <PICTIONARY> root 
-			 doc.appendChild(root);
-			 Element settings = doc.createElement("SETTINGS"); //creates the <SETTINGS> part 
-			 root.appendChild(settings);
-			 Element currentWord = doc.createElement("WORD");//creates the <WORD> part
-			 currentWord.setTextContent(word.getText()); //gets the word from the field and write it in the file 
-			 settings.appendChild(currentWord);
-			 Element currentColor = doc.createElement("COLOR");//creates the <COLOR> part 
-			 currentColor.setTextContent(color.getText());//gets the color from the field and writes it in the file
-			 settings.appendChild(currentColor);
-			 //Writes the actual XML file:
-			 TransformerFactory tf = TransformerFactory.newInstance();
-			 Transformer t = tf.newTransformer();
-			 DOMSource source = new DOMSource(doc);
-			 StreamResult result = new StreamResult(new File(name));
-			 t.transform(source, result);
-		 }
-		 catch(Exception e) { 
-			 e.printStackTrace();
-		 }
-		 */
 	}//end of saveSettings method 
 	
 	public void loadSettings() { 
