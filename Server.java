@@ -7,7 +7,7 @@ public class Server {
 	private static PrintWriter outgoing;   // Stream for sending data.
 
 	public static void main(String[] args) { 
-		System.out.println("Listening on port" + LISTENING_PORT);
+		System.out.println("Listening on port " + LISTENING_PORT);
 		try { 
 			ServerSocket listener = new ServerSocket(LISTENING_PORT);  // Listens for incoming connections.
 			while(true) { 

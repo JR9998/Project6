@@ -22,7 +22,7 @@ public class StartingScene extends Application {
 		Button start = new Button("Start");
 		Button settings = new Button("Settings");
 		settings.setOnAction(e -> setting.set(stage));
-		start.setOnAction(e -> connect());
+		start.setOnAction(e -> connect(stage));
 		root.getChildren().addAll(start, settings);
 		root.setAlignment(Pos.CENTER);
 		Scene scene = new Scene(root, 300,400);
@@ -30,13 +30,16 @@ public class StartingScene extends Application {
 		stage.setTitle("Pictionary");
 		stage.show();
 	}//end of start method
-	public void connect() { 
+	public void connect(Stage stage) { 
 		try { 
 		String host = "localhost";
 		Socket connection = new Socket(host, LISTENING_PORT);
 		outgoing = new PrintWriter(connection.getOutputStream(), true);
 		incoming  = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 		String response = incoming.readLine();
+		boolean isPlayer1 = response.contains("Player 1");
+		PrimaryScene primaryScene = new PrimaryScene();
+		primaryScene.set(stage, isPlayer1, isPlayer1 ? "Horse" : null , incoming, outgoing);
 		System.out.println("Recieved: " + response);
 		} 
 		catch(IOException e) { 
